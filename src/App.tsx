@@ -1,31 +1,35 @@
-import styles from './App.module.css';
-import './global.css';
+import { useState } from "react";
+import styles from "./App.module.css";
+import "./global.css";
 
-import { Header } from './components/Header'
-import { InputField } from './components/InputField';
-import { Empty } from './components/ListContainer/Tasks';
+import { Header } from "./components/Header";
+import { InputField } from "./components/InputField";
+import { Tasks } from "./components/ListContainer/Tasks";
 
 export function App() {
+  const [tasks, setTasks] = useState<string[]>([]);
+
+  function addTask(newTask: string) {
+    if (newTask.trim() !== "") {
+      setTasks([...tasks, newTask]);
+    }
+  }
+
   return (
     <main>
-    
-   <Header/>
-   
-   <section className={styles.content}>
-    <div className={styles.taskInfoContainer}>
-   <InputField input={[<input key="1" />]} />
-  
-   
-    </div>
-    <div>
-      <Empty/>
-    <div>
+      <Header />
 
-      </div>
-    </div>
-   
-   </section>
-   </main>
-  )
+      <section className={styles.content}>
+        <div className={styles.taskInfoContainer}>
+          <InputField input={[<input key="1" />]} onAddTask={addTask} />
+        </div>
+
+        <div>
+          <Tasks tasks={tasks} />
+        </div>
+      </section>
+    </main>
+  );
 }
+
 export default App;

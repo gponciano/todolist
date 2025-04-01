@@ -1,19 +1,33 @@
-import styles from '../ListContainer/Tasks.module.css';
-import { HeaderItems } from './HeaderItems';
+import styles from "../ListContainer/Tasks.module.css";
+import { HeaderItems } from "./HeaderItems";
 
-export function Empty(){
+type TasksProps = {
+  tasks: string[]; 
+};
 
-    return (
+export function Tasks({ tasks }: TasksProps) {
+  return (
     <>
-    <HeaderItems/>
-    <div className={styles.container}>
-        <ul>
+      <HeaderItems />
+
+      <div className={styles.container}>
+        {tasks.length === 0 ? (
+          <li className={styles.todoItem}>
             <h4>You haven't added any tasks yet</h4>
             <p>Create tasks and organise your priorities</p>
-        </ul>
-    </div>
+          </li>
+        ) : (
+          <ul className={styles.taskList}>
+            {tasks.map((task, index) => (
+              <li key={index} className={styles.todoItem}>
+                {task}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </>
-    )
+  );
 }
 
-export default Empty;
+export default Tasks;
