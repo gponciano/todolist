@@ -1,8 +1,13 @@
 import styles from './Button.module.css';
 
-export function Button({children }: {children: React.ReactNode}){
+interface ButtonProps {
+    children: React.ReactNode;
+    onClick?: () => void;
+}
+
+export function Button({children, onClick }: ButtonProps){
     return (
-        <button className={styles.button}>
+        <button type='submit' className={styles.button} onClick={onClick}>
             {children}
         </button>
     )

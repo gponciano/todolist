@@ -11,9 +11,7 @@ export function HeaderItems() {
   
         <aside>
           <p>Completed</p>
-          <span>
-            
-          </span>
+          <span></span>
         </aside>
       </header>
 )
