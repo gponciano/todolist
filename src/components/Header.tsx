@@ -1,7 +1,7 @@
 import styles from './Header.module.css';
 import logo from '../assets/rocket.svg'
 import todo from '../assets/todo.svg';
-import React from 'react';
+
 
 export function Header() {
     return (
