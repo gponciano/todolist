@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    position: relative;
+    transform: translate(-1%, -50%);  /* Center and pull up for overlap */
+    z-index: 10; 
 }
 
 .input {
@@ -13,8 +14,7 @@
     flex: 1;                       
     height: 4rem;
     padding: 1rem;
-    width: 39rem;
-    
+    min-width: 39.5rem;
    
 }
 
